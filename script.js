@@ -43,9 +43,7 @@ function customPasswordProperties() {
         includeLowerCase: includeLowerCase,
         includeSpecialChars: includeSpecialChars
     };
-    console.log("customPasswordProperties");
     return pwProperties;
-    
 }
 
   
@@ -53,10 +51,7 @@ function customPasswordProperties() {
 function returnCharacter(myArray) {
     //Generate a number that will serve as array index to randomly return a character from a given array.
     var index = Math.floor(Math.random() * myArray.length);
-    console.log("returnCharacter" + myArray[index]);
-
     return myArray[index];
-    
 }
   
 // FUNCTION: This will create a password according to the user preferences.
@@ -81,7 +76,7 @@ function generatePassword() {
     }
 
     // While not a requirement of the user story, it makes sense to include at least one of each type requested. 
-    // We can add one of each to start, and then fill with the rest with random characters from the requested types.
+    // We can add one of each to start, and then fill the rest with random characters from the requested types.
     var myPassword = [];
     if (pwProperties.includeNumbers) {
         myPassword.push(returnCharacter(numbers));
@@ -98,18 +93,14 @@ function generatePassword() {
 
     // The first few characters of myPassword contain the desired properties for PW. Now we are adding the rest from all potential options.
     for (var i = myPassword.length; i < pwProperties.length; i++) {
-        console.log("i="+i);
         var randomChar = returnCharacter(allCharOptions);
         myPassword.push(randomChar);
-        console.log("randomChar"+randomChar);
     }
   
     // Return myPassword as a string.
-    console.log("generatePW");
-    console.log(myPassword.join(''));
     return myPassword.join('');
     
-  }
+}
   
 
 // Assignment Code
